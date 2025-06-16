@@ -100,6 +100,12 @@ jobs:
         mv package/new/custom/speedtest-cli package/new
         rm -rf package/new/custom
         ./scripts/feeds install -a
+
+    - name: Run DIY Script(运行自定义脚本)
+      run: |
+        cd $OPENWRT_PATH
+        chmod +x $GITHUB_WORKSPACE/$DIY_SCRIPT
+        $GITHUB_WORKSPACE/$DIY_SCRIPT
   
     - name: Load Custom Configuration(加载自定义配置)
       run: |
