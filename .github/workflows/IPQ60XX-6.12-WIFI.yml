@@ -66,7 +66,7 @@ jobs:
         git clone --depth 1 -b $REPO_BRANCH $REPO_URL openwrt
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_ENV
-        VERSION_INFO=$(git show -s --date=short --format="作者: %an<br/>时间: %cd<br/>内容: %s<br/>hash: %H")
+        VERSION_INFO=$(git show -s --format="作者: %an<br/>时间: $(date +'%Y-%m-%d')<br/>内容: %s<br/>hash: %H")
         echo "VERSION_INFO=$VERSION_INFO" >> $GITHUB_ENV
         VERSION_KERNEL=$(grep -oP 'LINUX_KERNEL_HASH-\K[0-9]+\.[0-9]+\.[0-9]+' include/kernel-6.12)
         echo "VERSION_KERNEL=$VERSION_KERNEL" >> $GITHUB_ENV
@@ -141,17 +141,17 @@ jobs:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.OPENWRT_PATH }}/bin
 
-    - name: Upload build.config for debugging
-      if: always()
-      run: |
-        mkdir -p test
-        cp $OPENWRT_PATH/.config test/build.config
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        git pull origin main --rebase || echo "Pull failed, continuing..."
-        git add test/build.config
-        git commit -m "Upload build.config for debugging" || echo "No changes to commit"
-        git push || echo "Push failed"
+    # - name: Upload build.config for debugging
+    #   if: always()
+    #   run: |
+    #     mkdir -p test
+    #     cp $OPENWRT_PATH/.config test/build.config
+    #     git config --global user.name "GitHub Actions"
+    #     git config --global user.email "actions@github.com"
+    #     git pull origin main --rebase || echo "Pull failed, continuing..."
+    #     git add test/build.config
+    #     git commit -m "Upload build.config for debugging" || echo "No changes to commit"
+    #     git push || echo "Push failed"
 
     - name: Organize Files(整理文件)
       if: steps.compile.outputs.status == 'success'
@@ -187,7 +187,7 @@ jobs:
           - 💻 这是 ${{ env.FIRMWARE_TAG }} 平台使用的 OpenWrt 固件
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
-          - 🌐 默认地址: 192.168.1.1
+          - 🌐 默认地址: 192.168.192.1
           - 🔑 默认密码: password
           ### 🧊 固件版本
           - 固件内核版本：${{ env.VERSION_KERNEL }}
