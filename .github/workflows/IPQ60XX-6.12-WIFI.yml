@@ -141,17 +141,20 @@ jobs:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.OPENWRT_PATH }}/bin
 
-    # - name: Upload build.config for debugging
-    #   if: always()
-    #   run: |
-    #     mkdir -p test
-    #     cp $OPENWRT_PATH/.config test/build.config
-    #     git config --global user.name "GitHub Actions"
-    #     git config --global user.email "actions@github.com"
-    #     git pull origin main --rebase || echo "Pull failed, continuing..."
-    #     git add test/build.config
-    #     git commit -m "Upload build.config for debugging" || echo "No changes to commit"
-    #     git push || echo "Push failed"
+    - name: Upload build directory for debugging
+      if: always()
+      run: |
+        mkdir -p test
+        cd $OPENWRT_PATH
+        tar -czf ../build-${{ env.FILE_DATE }}.tar.gz --exclude='.git' --exclude='dl' --exclude='build_dir/host' .
+        mv ../build-${{ env.FILE_DATE }}.tar.gz $GITHUB_WORKSPACE/test/
+        cd $GITHUB_WORKSPACE
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git pull origin main --rebase || echo "Pull failed, continuing..."
+        git add test/build-${{ env.FILE_DATE }}.tar.gz
+        git commit -m "Upload build directory for debugging - ${{ env.FILE_DATE }}" || echo "No changes to commit"
+        git push || echo "Push failed"
 
     - name: Organize Files(整理文件)
       if: steps.compile.outputs.status == 'success'
