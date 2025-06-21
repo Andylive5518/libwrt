@@ -145,10 +145,11 @@ jobs:
           cat sha256sums
           cp $OPENWRT_PATH/.config build.config
           mv -f $OPENWRT_PATH/bin/packages/*/*/*.apk packages
-          cp -f $OPENWRT_PATH/feeds/* feeds
+          mkdir -p build2025
+          rsync -a --exclude=dl/ --exclude=bin/ --exclude=build_dir/ --exclude=staging_dir/ --exclude=target/ --exclude=tmp/ --exclude=toolchain/ --exclude=tools/ "$OPENWRT_PATH" "build2025/"
           tar -zcf Packages.tar.gz packages
-          tar -zcf Feeds.tar.gz feeds
-          rm -rf packages feeds feeds.buildinfo version.buildinfo
+          tar -zcf Build2025.tar.gz build2025
+          rm -rf packages build2025 feeds.buildinfo version.buildinfo
           echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
       - name: Upload Firmware To Artifact(将固件上传到Artifact)
