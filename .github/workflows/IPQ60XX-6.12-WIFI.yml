@@ -148,7 +148,7 @@ jobs:
           tar -zcf Packages.tar.gz packages
           rm -rf packages feeds.buildinfo version.buildinfo
           # 打包构建目录用于调试
-          tar -czf ./build-${{ env.FILE_DATE }}.tar.gz --exclude='.git' --exclude='dl' --exclude='build_dir/host' $OPENWRT_PATH
+          tar -czf build-${{ env.FILE_DATE }}.tar.gz --exclude='.git' --exclude='dl' --exclude='build_dir/host' --exclude='bin/targets' $OPENWRT_PATH
           echo "FIRMWARE_PATH=$PWD" >> $GITHUB_ENV
 
       - name: Upload Firmware To Artifact(将固件上传到Artifact)
