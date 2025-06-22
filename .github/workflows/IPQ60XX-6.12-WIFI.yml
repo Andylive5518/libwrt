@@ -146,7 +146,7 @@ jobs:
           cp $OPENWRT_PATH/.config build.config
           mv -f $OPENWRT_PATH/bin/packages/*/*/*.apk packages
           mkdir -p build2025
-          rsync -a --exclude=dl/ --exclude=bin/ --exclude=build_dir/ --exclude=staging_dir/ --exclude=target/ --exclude=tmp/ --exclude=toolchain/ --exclude=tools/ "$OPENWRT_PATH" "build2025/"
+          rsync -a --include="feeds/" --include="package/" --exclude="*" "$OPENWRT_PATH/" "build2025/"
           tar -zcf Packages.tar.gz packages
           tar -zcf Build2025.tar.gz build2025
           rm -rf packages build2025 feeds.buildinfo version.buildinfo
