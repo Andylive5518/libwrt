@@ -15,7 +15,7 @@ rm -rf feeds/packages/net/mosdns
 # rm -rf feeds/packages/net/smartdns
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-argon-config
-# rm -rf feeds/luci/applications/luci-app-athena-led
+rm -rf feeds/luci/applications/luci-app-athena-led
 rm -rf feeds/luci/applications/luci-app-mosdns
 # rm -rf feeds/luci/applications/luci-app-netdata
 # rm -rf feeds/luci/applications/luci-app-serverchan
@@ -65,7 +65,7 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/e
 # git clone --depth=1 https://github.com/ximiTech/msd_lite package/new/msd_lite
 
 # 雅典娜LED屏幕控制
-# git clone --depth=1 https://github.com/NONGFAH/luci-app-athena-led package/new/luci-app-athena-led
+git clone --depth=1 https://github.com/NONGFAH/luci-app-athena-led package/emortal/luci-app-athena-led
 
 # MosDNS
 git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/emortal/luci-app-mosdns
