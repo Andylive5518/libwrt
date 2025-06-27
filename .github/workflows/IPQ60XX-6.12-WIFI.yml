@@ -95,10 +95,6 @@ jobs:
         run: |
           cd $OPENWRT_PATH
           ./scripts/feeds update -a
-          git clone --depth 1 https://github.com/sbwml/openwrt_pkgs.git package/custom
-          mv package/custom/luci-app-netspeedtest  package
-          mv package/custom/speedtest-cli package
-          rm -rf package/custom
           chmod +x $GITHUB_WORKSPACE/$DIY_SCRIPT
           $GITHUB_WORKSPACE/$DIY_SCRIPT
           # ./scripts/feeds install -a
