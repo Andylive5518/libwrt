@@ -9,7 +9,7 @@ env:
   REPO_URL: https://github.com/LiBwrt/openwrt-6.x.git
   REPO_BRANCH: k6.12-nss
   CONFIG_FILE: configs/ipq60xx-6.12-wifi.config
-  DIY_SCRIPT: diy-script.sh
+  DIY_SCRIPT: libwrt.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
@@ -96,8 +96,8 @@ jobs:
           cd $OPENWRT_PATH
           ./scripts/feeds update -a
           git clone --depth 1 https://github.com/sbwml/openwrt_pkgs.git package/custom
-          mv package/custom/luci-app-netspeedtest  package/emortal
-          mv package/custom/speedtest-cli package/emortal
+          mv package/custom/luci-app-netspeedtest  package
+          mv package/custom/speedtest-cli package
           rm -rf package/custom
           chmod +x $GITHUB_WORKSPACE/$DIY_SCRIPT
           $GITHUB_WORKSPACE/$DIY_SCRIPT
