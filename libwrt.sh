@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./scripts/feeds update -a
+
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.192.1/g' package/base-files/files/bin/config_generate
 
@@ -82,8 +84,9 @@ rm -rf feeds/packages/net/speedtest-cli
 git clone --depth=1 https://github.com/sirpdboy/luci-app-netspeedtest package/luci-app-netspeedtest
 
 # openwrt常用软件包
-rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
+# rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/luci/applications/{*passwall,*homeproxy,*openclash,*mosdns,*smartdns}
+rm -rf feeds/packages/net/{adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
 rm -rf feeds/packages/utils/v2dat
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages package/kenzo
 # 科学上网插件

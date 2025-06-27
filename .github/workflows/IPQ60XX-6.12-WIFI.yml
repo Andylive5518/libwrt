@@ -94,10 +94,8 @@ jobs:
       - name: Install Feeds(安装feeds)
         run: |
           cd $OPENWRT_PATH
-          ./scripts/feeds update -a
           chmod +x $GITHUB_WORKSPACE/$DIY_SCRIPT
           $GITHUB_WORKSPACE/$DIY_SCRIPT
-          # ./scripts/feeds install -a
 
       - name: Load Custom Configuration(加载自定义配置)
         run: |
