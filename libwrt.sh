@@ -91,8 +91,8 @@ rm -rf feeds/packages/utils/v2dat
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages package/kenzo
 # 科学上网插件
 git clone --depth=1 https://github.com/kenzok8/small package/small
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+# rm -rf feeds/packages/lang/golang
+# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 # 在线用户
 # git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
