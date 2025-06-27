@@ -34,32 +34,29 @@ sed -i 's|/bin/login|/bin/login -f root|g' feeds/packages/utils/ttyd/files/ttyd.
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 # git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
-#git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
-git clone --depth=1 -b master https://github.com/fw876/helloworld package/luci-app-ssr-plus
-git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki package/luci-app-nikki
+# git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+# git clone --depth=1 -b master https://github.com/fw876/helloworld package/luci-app-ssr-plus
+# git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki package/luci-app-nikki
 
 # Themes
-# 移除要替换的包
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-argon-config
-git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+# rm -rf feeds/luci/themes/luci-theme-argon
+# rm -rf feeds/luci/applications/luci-app-argon-config
+# git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+# git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 # git clone --depth=1 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
 # git clone --depth=1 https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 # git_sparse_clone main https://github.com/haiibo/packages luci-theme-atmaterial luci-theme-opentomcat luci-theme-netgear
 
 # 雅典娜LED屏幕控制
-# 移除要替换的包
 rm -rf feeds/luci/applications/luci-app-athena-led
 rm -rf package/emortal/luci-app-athena-led
 git clone --depth=1 https://github.com/NONGFAH/luci-app-athena-led package/luci-app-athena-led
 chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app-athena-led/root/usr/sbin/athena-led
 
 # MosDNS
-# 移除要替换的包
-rm -rf feeds/packages/net/mosdns
-rm -rf feeds/luci/applications/luci-app-mosdns
-git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+# rm -rf feeds/packages/net/mosdns
+# rm -rf feeds/luci/applications/luci-app-mosdns
+# git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 
 # SmartDNS
 # git clone --depth=1 https://github.com/pymumu/luci-app-smartdns package/luci-app-smartdns
@@ -81,12 +78,18 @@ git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mo
 # git clone --depth=1 https://github.com/ximiTech/msd_lite package/msd_lite
 
 # 网络速度诊断测试
-# 移除要替换的包
 rm -rf feeds/packages/net/speedtest-cli
 git clone --depth=1 https://github.com/sirpdboy/luci-app-netspeedtest package/luci-app-netspeedtest
 
-# 动态域名,http/https反向代理
-git clone --depth=1 https://github.com/sirpdboy/luci-app-lucky package/luci-app-lucky
+# openwrt常用软件包
+rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,v2ray*,sing*,smartdns}
+rm -rf feeds/packages/utils/v2dat
+git clone --depth=1 https://github.com/kenzok8/openwrt-packages package/kenzo
+# 科学上网插件
+git clone --depth=1 https://github.com/kenzok8/small package/small
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 # 在线用户
 # git_sparse_clone main https://github.com/haiibo/packages luci-app-onliner
