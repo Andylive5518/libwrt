@@ -93,7 +93,7 @@ rm -rf package/custom1
 # 科学上网插件
 git clone --depth=1 https://github.com/kenzok8/small package/custom2
 mkdir -p package/small
-mv package/custom2/{*fchomo,*homeproxy,*mosdns,*nikki,*passwall*,trojan-*,mihomo,pdnsd-alt,ssocks,shadow-tls,shadowsocksr-libev,v2dat,v2ray-geoview}  package/small/
+mv package/custom2/{*fchomo,*homeproxy,*mosdns,*nikki,*passwall*,trojan,trojan-go,mihomo,ssocks,shadow-tls,shadowsocksr-libev,v2dat,v2ray-geoview}  package/small/
 rm -rf package/custom2
 
 # 在线用户
