@@ -88,7 +88,7 @@ rm -rf feeds/luci/applications/{*passwall,*homeproxy,*mosdns,*smartdns}
 rm -rf feeds/packages/net/{adguardhome,mosdns,smartdns}
 git clone --depth=1 https://github.com/kenzok8/openwrt-packages package/custom1
 mkdir -p package/kenzo
-mv package/custom1/{*adguardhome,*ddns*,*argon-*,*-argon,*design*,*lucky,*smartdns,luci-lib*}  package/kenzo/
+mv package/custom1/{*adguardhome,*ddnsto,*argon-*,*-argon,*design*,*lucky,*smartdns}  package/kenzo/
 rm -rf package/custom1
 # 科学上网插件
 git clone --depth=1 https://github.com/kenzok8/small package/custom2
