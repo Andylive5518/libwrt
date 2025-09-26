@@ -9,9 +9,5 @@
 
 ## 项目说明
 - 固件默认管理地址：`192.168.192.1` 默认用户：`root` 默认密码：`password`
-
 - 源码：[LiBwrt](https://github.com/LiBwrt-op/openwrt-6.x)
-
-- 云编译来源：https://github.com/breeze303/openwrt-ci
-
-  
+- 云编译来源：[openwrt-ci](https://github.com/breeze303/openwrt-ci)
