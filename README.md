@@ -12,6 +12,6 @@
 
 - 源码：[LiBwrt](https://github.com/LiBwrt-op/openwrt-6.x)
 
-- 云编译来源：https://github.com/haiibo/OpenWrt
+- 云编译来源：https://github.com/breeze303/openwrt-ci
 
   
